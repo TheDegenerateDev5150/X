@@ -1,5 +1,26 @@
 # NewLife.Core 版本更新记录
 
+## v11.15.2026.0501 (2026-05-01)
+
+### 序列化增强
+- **SpanWriter/SpanReader WriteValue/ReadValue**：新增对所有基础类型的通用 `WriteValue`/`ReadValue` 方法，完整单元测试覆盖，零分配读写更易用
+- **字符串截断方法统一命名**：重构字符串截断扩展方法，统一命名规范，提升 API 一致性
+
+### JSON 增强
+- **PropertyNaming 统一命名策略**：引入 `PropertyNaming` 枚举，支持驼峰、下划线、帕斯卡等多种 JSON 属性命名策略，可全局配置
+- **Json 命名策略序列化增强**：增强序列化/反序列化对命名策略的完整应用，覆盖更多边界场景
+- **ExtendableConverter 属性忽略增强**：增强 `ExtendableConverter` 对 `ShouldIgnore` 忽略条件的支持，灵活控制字段序列化
+
+### 网络与 HTTP
+- **集成测试增强**：统一集成测试客户端，增强用例覆盖；优化 `ApiHttpClient` 参数传递逻辑
+
+### Bug 修复
+- **[fix]** 修复 `AssemblyResolve` 事件递归触发配置初始化，导致栈溢出的问题
+- **[fix]** 修复对象 `Copy` 时，目标 `string?` 字段为 null 导致的空指针异常
+- **[chore]** 程序集解析异常时写入 Trace 调试信息，便于排查加载失败问题
+
+---
+
 ## v11.14.2026.0402 (2026-04-02)
 
 ### 序列化增强
